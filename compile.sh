@@ -1,0 +1,1 @@
+ eosio-cpp test.cpp ./lib/eos_mem_wrapper.cpp ./lib/BigInteger.cpp ./lib/BigIntegerAlgorithms.cpp ./lib/BigIntegerUtils.cpp ./lib/BigUnsigned.cpp ./lib/BigUnsignedInABase.cpp -o test.wasm
