@@ -79,8 +79,58 @@ BigUnsigned modexp(const BigInteger &base, const BigUnsigned &exponent,
 	return ans;
 }
 
-
 BigUnsigned addmod(const BigUnsigned &a, const BigUnsigned &b, 
 		const BigUnsigned &modulus){
 	return (a + b) % modulus;
+}
+
+BigUnsigned submod(const BigUnsigned &a, const BigUnsigned &b, 
+		const BigUnsigned &modulus){
+	//(a - b) % c = (c + a - b) % c => no overflow
+	return (modulus + (a % modulus) - (b % modulus)) % modulus;
+}
+
+BigUnsigned mulmod(const BigUnsigned &a, const BigUnsigned &b,
+		const BigUnsigned &modulus){
+	
+	BigUnsigned n1 = a;
+	BigUnsigned n2 = b;
+    BigUnsigned res = 0; 
+	BigUnsigned one = 1;
+	BigUnsigned two = 2;
+  
+    // Update n1 if it is more than 
+    // or equal to mod 
+    n1 %= modulus; 
+  
+    while (n2 > 0) 
+    { 
+        // If n2 is odd, add a with result 
+        if (( n2 & one ) > 0) 
+            res = (res + n1) % modulus; 
+  
+        // Here we assume that doing 2*n1
+        // doesn't cause overflow 
+        n1 = (two * n1) % modulus; 
+  
+        n2 >>= 1; // n2 = n2 / 2 
+    } 
+  
+    return res; 
+} 
+
+/*
+find a number c such that (b * c) % modulus = a % modulus.
+The task is to compute a/b under modulo m.
+Check if inverse of b under modulo exists or not. 
+	if inverse doesn't exists (GCD of b and m is not 1), 
+    else return  "(inv * a) % modulus" 
+*/
+BigUnsigned divmod(const BigUnsigned &a, const BigUnsigned &b,
+		const BigUnsigned &modulus){	
+	BigUnsigned n = a;
+	n %= modulus; 
+    BigUnsigned inv = modinv(b, modulus); 
+	if (inv == 0) return 0;
+	return (n * inv) % modulus;
 }

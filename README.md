@@ -6,6 +6,13 @@ Refactoring of [this repo](https://github.com/playerone-id/biginteger-for-eosio)
 
 Matt McCutchen ( [C++ Big Integer Library](https://mattmccutchen.net/bigint/) ) 
 
+## Added Features
+
+* __`addmod(a,b,c)`__ => (a + b) % c
+* __`submod(a,b,c)`__ => (a - b) % c
+* __`mulmod(a,b,c)`__ => (a * b) % c
+* __`divmod(a,b,c)`__ => (a / b) % c = ((a mod c) * (b^(-1) mod c)) mod c
+
 ## Use 
 
 ```c++

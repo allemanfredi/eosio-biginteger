@@ -28,10 +28,30 @@ BigUnsigned modexp(const BigInteger &base, const BigUnsigned &exponent,
 
 /**
 * 	@author allemanfredi
-*	modular addition
+*	modular addition (a + b) % c
 **/
 BigUnsigned addmod(const BigUnsigned &a, const BigUnsigned &b, 
 		const BigUnsigned &modulus);
-		
+
+/**
+* 	@author allemanfredi
+*	modular subtraction (a - b) % c
+**/
+BigUnsigned submod(const BigUnsigned &a, const BigUnsigned &b, 
+		const BigUnsigned &modulus);
+
+/**
+* 	@author allemanfredi
+*	modular multiplication (a * b) % c
+**/
+BigUnsigned mulmod(const BigUnsigned &a, const BigUnsigned &b,
+		const BigUnsigned &modulus);
+
+/**
+* 	@author allemanfredi
+*	modular division (a / b) % c
+**/
+BigUnsigned divmod(const BigUnsigned &a, const BigUnsigned &b,
+		const BigUnsigned &modulus);
 
 #endif

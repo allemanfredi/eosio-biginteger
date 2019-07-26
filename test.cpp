@@ -17,7 +17,10 @@ class [[eosio::contract("test")]] test : public contract {
       [[eosio::action]]
       void execute(){
          print("n * n * n * n * n * n * n * n: ", ( n * n * n * n * n * n * n * n )); 
-         print("\n(a + b) % c: " , addmod(a,b,m));
+         print("(a + b) % c: " , addmod(a,b,m));
+         print("(b - a) % c: " , submod(b,a,m));
+         print("(a * b) % c: " , mulmod(a,b,m));
+         print("(a / b) % c: " , divmod(a,b,m));
       }
 };
 
