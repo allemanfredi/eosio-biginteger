@@ -78,3 +78,9 @@ BigUnsigned modexp(const BigInteger &base, const BigUnsigned &exponent,
 	}
 	return ans;
 }
+
+
+BigUnsigned addmod(const BigUnsigned &a, const BigUnsigned &b, 
+		const BigUnsigned &modulus){
+	return (a + b) % modulus;
+}

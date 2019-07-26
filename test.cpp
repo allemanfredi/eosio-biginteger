@@ -9,11 +9,15 @@ class [[eosio::contract("test")]] test : public contract {
   public:
       using contract::contract;
 
-      BigInteger a = 65536;  
+      BigInteger n = 65536;  
+      BigUnsigned a = 34324;
+      BigUnsigned b = 4321;
+      BigUnsigned m = 7;
 
       [[eosio::action]]
       void execute(){
-         print("a * a * a * a * a * a * a * a: ", ( a * a * a * a * a * a * a * a ) ); 
+         print("n * n * n * n * n * n * n * n: ", ( n * n * n * n * n * n * n * n )); 
+         print("\n(a + b) % c: " , addmod(a,b,m));
       }
 };
 

@@ -26,4 +26,12 @@ BigUnsigned modinv(const BigInteger &x, const BigUnsigned &n);
 BigUnsigned modexp(const BigInteger &base, const BigUnsigned &exponent,
 		const BigUnsigned &modulus);
 
+/**
+* 	@author allemanfredi
+*	modular addition
+**/
+BigUnsigned addmod(const BigUnsigned &a, const BigUnsigned &b, 
+		const BigUnsigned &modulus);
+		
+
 #endif
